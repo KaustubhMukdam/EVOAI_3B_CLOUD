@@ -1,0 +1,29 @@
+evolution:
+  archive_size: 20
+  population_size: 2
+  mutation_rate: 0.15
+  selection_method: "tournament"
+
+evaluation:
+  subset_sizes: [3, 8, 15]
+  promotion_threshold: 0.30
+  max_evaluations_per_generation: 2
+
+rewards:
+  alpha_tests_passed: 0.6
+  beta_constitution_score: 0.3
+  gamma_diff_complexity: 0.1
+
+safety:
+  sandbox_enabled: true
+  max_execution_time: 90
+  resource_limits:
+    cpu_percent: 80
+    memory_mb: 10240
+    gpu_memory_mb: 5000
+
+memory_optimization:
+  enable_cpu_offload: true
+  enable_gradient_checkpointing: true
+  use_8bit_optimizer: false
+  clear_cache_frequency: 3

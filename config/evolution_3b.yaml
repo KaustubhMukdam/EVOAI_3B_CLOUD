@@ -1,0 +1,29 @@
+evolution:
+  archive_size: 30
+  population_size: 3     # Reduced for memory
+  mutation_rate: 0.15
+  selection_method: "tournament"
+
+evaluation:
+  subset_sizes: [5, 15, 30]  # Smaller subsets
+  promotion_threshold: 0.35
+  max_evaluations_per_generation: 3
+
+rewards:
+  alpha_tests_passed: 0.6
+  beta_constitution_score: 0.3
+  gamma_diff_complexity: 0.1
+
+safety:
+  sandbox_enabled: true
+  max_execution_time: 120
+  resource_limits:
+    cpu_percent: 85
+    memory_mb: 12288      # 12GB RAM limit
+    gpu_memory_mb: 5500   # Leave 500MB buffer
+
+memory_optimization:
+  enable_cpu_offload: true
+  enable_gradient_checkpointing: true
+  use_8bit_optimizer: true
+  clear_cache_frequency: 5

@@ -1,0 +1,26 @@
+model:
+  name: "Qwen/Qwen2.5-Coder-3B-Instruct"
+  device: "cuda"
+  quantization: "4bit"  # Essential for 6GB VRAM
+  max_length: 1024     # Reduced for memory efficiency
+  temperature: 0.7
+  top_p: 0.9
+  cache_dir: ".models/qwen_cache"
+
+hardware:
+  gpu_memory_fraction: 0.90  # Use most of 6GB VRAM
+  gradient_checkpointing: true
+  dataloader_num_workers: 2
+  batch_size: 1
+  gradient_accumulation_steps: 8  # Simulate larger batch
+
+optimization:
+  mixed_precision: "fp16"
+  flash_attention: true
+  memory_efficient_attention: true
+  cpu_offload: true
+
+constitutional:
+  critique_enabled: true
+  revision_enabled: true
+  max_revisions: 2
